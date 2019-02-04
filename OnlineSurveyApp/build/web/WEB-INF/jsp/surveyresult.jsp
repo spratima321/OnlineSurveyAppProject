@@ -19,7 +19,6 @@
           }
       </style>
    </head>
-
    <body>
        <br>
        <br>
@@ -28,27 +27,27 @@
                 <p class="text-center text-primary text-uppercase" style="font-size:24px">Online Survey Application</p>
             </div>
             <div class="panel-body">
-                <p class="text-center text-info" style="font-size:18px">Survey Results</p>
-                <table class="table table-bordered">
-                    <thead>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        What is your favorite color?
-                    </th>
-                    <th>
-                        Do you have a valid driver?s license?
-                    </th>
-                    <th>
-                        What is your favorite vacation spot? 
-                    </th>
-                     <th>
-                        I am happy about my job.
-                    </th>                   
+                <p class="text-center text-info" style="font-size:20px">Survey Results</p>
+                <table class="table table-bordered">                  
+                    <thead style='font-size: 15px;'>                                         
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            What is your favorite color?
+                        </th>
+                        <th>
+                            Do you have a valid driver's license?
+                        </th>
+                        <th>
+                            What is your favorite vacation spot? 
+                        </th>
+                         <th>
+                            I am happy about my job.
+                        </th>                   
                     </thead>
                 <c:forEach var="listVar" items="${questionsResponseList}"> 
-                    <tr>
+                    <tr style='font-size: 14px'>
                         <td>${listVar.userName}</td>
                         <td>${listVar.firstQuestionResponse}</td>
                         <td>${listVar.secondQuestionResponse}</td>
@@ -56,8 +55,8 @@
                         <td>${listVar.fourthQuestionResponse}</td>
                     </tr>
                 </c:forEach>
-                </table>
-                      
+                </table>       
+                <a href="/OnlineSurveyApp/user" class="btn btn-primary btn-md">Start A New Survey</a>
             </div>
         </div>  
    </body>

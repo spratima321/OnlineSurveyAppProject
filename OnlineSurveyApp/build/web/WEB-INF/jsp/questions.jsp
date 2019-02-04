@@ -18,7 +18,6 @@
           }
       </style>
    </head>
-
    <body>
        <br>
        <br>
@@ -28,10 +27,11 @@
             </div>
             <div class="panel-body">
                 <p class="text-center text-info" style="font-size:18px">Welcome ${USERNAME}</p>
-                <form:form method = "POST" action = "/OnlineSurveyApp/addQuestions" cssClass="form-horizontal">
+                <form:form method = "POST" action = "/OnlineSurveyApp/addQuestions" cssClass="form-horizontal" onsubmit="return confirm('Are you sure you want to submit your survey responses?')">
                 <br />
                 <form:hidden path = "userName" value="${USERNAME}" class="control-label labels"></form:hidden>
                 <form:hidden path = "userID" value="${USERID}" class="control-label labels"></form:hidden>
+                    
                      <div class="form-group required">
                          <label class="control-label labels">1. What is your favorite color? </label>
                          <br>
@@ -41,7 +41,7 @@
                             <label class="radio-inline"><form:radiobutton path = "firstQuestionResponse" id="" value="Blue" />Blue</label>
                             <label class="radio-inline"><form:radiobutton path = "firstQuestionResponse" id="" value="Black" />Black</label>
                             <label class="radio-inline"><form:radiobutton path = "firstQuestionResponse" id="" value="White" />White</label>
-                    </div>
+                     </div>
                      <div class="form-group required">
                          <label class="control-label labels">2. Do you have a valid driver's license? </label>
                          <br>
@@ -51,8 +51,7 @@
                     <div class="form-group required">
                         <label class="control-label labels">3. What is your favorite vacation spot?</label>
                         <br>
-                            <form:textarea path = "thirdQuestionResponse" class="form-control" rows="5" id="" required="required"/>
-                        
+                            <form:textarea path = "thirdQuestionResponse" class="form-control" rows="5" id="" required="required"/>        
                     </div>                    
                       <div class="form-group required">
                          <label class="control-label labels">4. I am happy about my job. </label>

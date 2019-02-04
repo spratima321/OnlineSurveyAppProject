@@ -1,9 +1,8 @@
 package onlinesurvey;
 
-
 /**
  *
- * @author Pratima 
+ * @author Pratima
  */
 public class User {
     
@@ -12,7 +11,19 @@ public class User {
     public String userMartialStatus;
     public Integer userNumberOfChildren;
     public Integer userAge;
+    
+    //Default Empty Constructor
+    public User(){}
 
+    //Constructor to initialize our object
+    public User(String userName,String userGender,String userMartialStatus,Integer userNumberOfChildren,Integer userAge)
+    {
+        this.userName=userName;
+        this.userGender=userGender;
+        this.userMartialStatus=userMartialStatus;
+        this.userNumberOfChildren=userNumberOfChildren;
+        this.userAge=userAge;
+    }
     //Getter and setter methods
     public String getUserName() {
         return userName;

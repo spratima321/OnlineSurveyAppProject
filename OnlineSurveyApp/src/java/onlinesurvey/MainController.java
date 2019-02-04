@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package onlinesurvey;
 
 import org.springframework.stereotype.Controller;
@@ -17,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  *
  * @author Pratima
  */
+
 @Controller
 @EnableWebMvc
 public class MainController {
@@ -31,17 +27,17 @@ public class MainController {
    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
       public ModelAndView addUser(User user, RedirectAttributes redir) {
       
-      String userID=java.util.UUID.randomUUID().toString();
-      String userName=user.getUserName();
-      //Add to our dictionary the added user
-      ProcessUserInformation process=new ProcessUserInformation();
-      process.insertUserInformation(userID, user);
+        String userID=java.util.UUID.randomUUID().toString();
+        String userName=user.getUserName();
+        
+        //Add to our dictionary the added user
+        ProcessUserInformation process=new ProcessUserInformation();
+        process.insertUserInformation(userID, user);
       
-    //Redirect to survey questions page with required user data
-    //modelAndView.setViewName("redirect:survey");
-    redir.addFlashAttribute("USERID",userID);
-    redir.addFlashAttribute("USERNAME",userName);
-    return new ModelAndView("redirect:questions");
+        //Redirect to survey questions page with required user data
+        redir.addFlashAttribute("USERID",userID);
+        redir.addFlashAttribute("USERNAME",userName);
+        return new ModelAndView("redirect:questions");
    }
       
    @RequestMapping(value = "/questions", method = RequestMethod.GET)
@@ -52,17 +48,10 @@ public class MainController {
    @RequestMapping(value = "/addQuestions", method = RequestMethod.POST)
       public String addQuestion(Questions question,ModelMap model){
 
-      //Insert our responses here
-      ProcessUserQuestionResponse response=new ProcessUserQuestionResponse();
-      response.insertUserQuestionResponse(question);
-      model.addAttribute("questionsResponseList", response.getQuestionsResponseList());
-      return "surveyresult";
+        //Insert our responses here
+        ProcessUserQuestionResponse response=new ProcessUserQuestionResponse();
+        response.insertUserQuestionResponse(question);
+        model.addAttribute("questionsResponseList", response.getQuestionsResponseList());   
+        return "surveyresult";
    }
-
-//    @RequestMapping(value = "/surveyresult", method = RequestMethod.GET)
-//   public ModelAndView surveyresult() {    
-//      SurveyResult result=new SurveyResult();
-//      result.questionsResponseList=ProcessUserQuestionResponse.questionsResponseList;
-//      return new ModelAndView("surveyresult", "command", new SurveyResult());
-//   }
 }

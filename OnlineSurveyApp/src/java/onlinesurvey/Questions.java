@@ -1,37 +1,36 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package onlinesurvey;
 
 /**
  *
  * @author Pratima
  */
-public class Questions {
+public class Questions extends User {
     
-    public String userName;
     public String userID;
     public String firstQuestionResponse;
     public String secondQuestionResponse;
     public String thirdQuestionResponse;
     public String fourthQuestionResponse;
     
+    //Default Empty constructor
+    public Questions(){}
+
+    //Constructor to initialize our object
+    public Questions(String username, String firstQuestionResponse , String secondQuestionResponse, String thirdQuestionResponse, String fourthQuestionResponse) 
+    {
+        this.userName=username;
+        this.firstQuestionResponse=firstQuestionResponse;
+        this.secondQuestionResponse=secondQuestionResponse;
+        this.thirdQuestionResponse=thirdQuestionResponse;
+        this.fourthQuestionResponse=fourthQuestionResponse;
+    }
+
     public String getUserID() {
         return userID;
     }
 
     public void setUserID(String userID) {
         this.userID = userID;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public String getFirstQuestionResponse() {
